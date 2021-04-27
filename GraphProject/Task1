@@ -32,13 +32,34 @@ class Graph<E>
   
         for (E v : edgeMap.keySet()) {
             str.append(v.toString() + " : ");
-            for (E w : edgeMap.get(v)) {
+            for (E w : edgeMap.get(v)) 
+            {
                 str.append(w.toString() + " ");
             }
             str.append("\n");
         }
   
         return (str.toString());
+    }
+    Set<E> breadthFirstTraversal(E root)
+    {
+    	Queue<E> queue = new LinkedList<E>();
+    	Set<E> visited = new LinkedHashSet<E>();
+    	visited.add(root);
+    	queue.add(root);
+    	
+    	while(!queue.isEmpty()) {
+    		E vertex = queue.poll();
+    		for(E v: this.edgeMap.get(vertex)) 
+            {
+    			if(!visited.contains(v)) 
+                {
+    				visited.add(v);
+    				queue.add(v);
+    			}
+    		}
+    	}
+    	return visited;
     }
 
 }
