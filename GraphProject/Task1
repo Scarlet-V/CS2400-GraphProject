@@ -25,5 +25,20 @@ class Graph<E>
         edgeMap.get(from).add(to);
     }
 
+    @Override
+    public String toString()
+    {
+        StringBuilder str = new StringBuilder();
+  
+        for (E v : edgeMap.keySet()) {
+            str.append(v.toString() + " : ");
+            for (E w : edgeMap.get(v)) {
+                str.append(w.toString() + " ");
+            }
+            str.append("\n");
+        }
+  
+        return (str.toString());
+    }
 
 }
