@@ -48,7 +48,8 @@ class Graph<E>
     	visited.add(root);
     	queue.add(root);
     	
-    	while(!queue.isEmpty()) {
+    	while(!queue.isEmpty()) 
+        {
     		E vertex = queue.poll();
     		for(E v: this.edgeMap.get(vertex)) 
             {
@@ -60,6 +61,32 @@ class Graph<E>
     		}
     	}
     	return visited;
+    }
+    public static void main(String[] args)
+    {
+        Graph<String> graph = new Graph<String>();
+  
+        graph.addEdge("A", "B");
+        graph.addEdge("A", "E");
+        graph.addEdge("A", "D");
+        graph.addEdge("D", "G");
+        graph.addEdge("G", "H");
+        graph.addEdge("H", "I");
+        graph.addEdge("I", "F");
+        graph.addEdge("F", "H");
+        graph.addEdge("F", "C");
+        graph.addEdge("C", "B");
+        graph.addEdge("B", "E");
+        graph.addEdge("E", "F");
+        graph.addEdge("E", "H");
+        
+        System.out.println("Graph:\n" + graph.toString());
+        
+        Set<String> bfs = graph.breadthFirstTraversal("A");
+        for(String x: bfs) 
+        {
+        	System.out.print(x + "->");
+        }
     }
 
 }
