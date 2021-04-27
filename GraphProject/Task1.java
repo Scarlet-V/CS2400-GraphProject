@@ -62,6 +62,7 @@ class Graph<E>
     	}
     	return visited;
     }
+    
     public static void main(String[] args)
     {
         Graph<String> graph = new Graph<String>();
@@ -88,5 +89,4 @@ class Graph<E>
         	System.out.print(x + "->");
         }
     }
-
 }
