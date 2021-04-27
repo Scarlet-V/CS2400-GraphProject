@@ -3,7 +3,12 @@ import java.util.*;
 
 class Graph<E> 
 {
-
+    private Map<E, List<E> > edgeMap;
+	 
+	Graph()
+    {
+    edgeMap = new HashMap<>();
+	}
 
 
 
