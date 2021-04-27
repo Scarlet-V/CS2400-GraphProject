@@ -14,7 +14,16 @@ class Graph<E>
     {
         edgeMap.put(s, new LinkedList<E>());
     }
+    public void addEdge(E from, E to)
+    {  
+        if (!edgeMap.containsKey(from))
+            addVertex(from);
   
+        if (!edgeMap.containsKey(to))
+            addVertex(to);
+  
+        edgeMap.get(from).add(to);
+    }
 
 
 }
