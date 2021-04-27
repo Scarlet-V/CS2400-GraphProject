@@ -10,6 +10,11 @@ class Graph<E>
     edgeMap = new HashMap<>();
 	}
 
+    public void addVertex(E s)
+    {
+        edgeMap.put(s, new LinkedList<E>());
+    }
+  
 
 
 }
