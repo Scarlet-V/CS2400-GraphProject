@@ -29,5 +29,23 @@ class Graph<E>
             indexToVertex[i] = vertices[i];
         }
     }
+    public void print() 
+    {
+        System.out.print("  ");
+        for(int i=0; i<indexToVertex.length; i++) 
+        {
+            System.out.print(indexToVertex[i] + " ");
+        }
+        System.out.println();
+        for(int i=0; i<adjacencyMatrix.length; i++) 
+        {
+            System.out.print(indexToVertex[i] + " ");
+            for(int j=0; j<adjacencyMatrix.length; j++) 
+            {
+                System.out.print(adjacencyMatrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
 
 }
