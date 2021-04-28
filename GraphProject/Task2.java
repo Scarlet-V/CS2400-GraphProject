@@ -15,11 +15,19 @@ class Graph<E>
     	 addVertex(vertices);
      }
 
-     public void addEdge(E from, E to) {
+     public void addEdge(E from, E to) 
+     {
         int fromIdx = vertexToIndex.get(from);
         int toIdx = vertexToIndex.get(to);
         adjacencyMatrix[fromIdx][toIdx] = 1;
     }
-     
+    public void addVertex(E[] vertices) 
+    {
+        for(int i=0; i<vertices.length; i++) 
+        {
+            vertexToIndex.put(vertices[i], i);
+            indexToVertex[i] = vertices[i];
+        }
+    }
 
 }
