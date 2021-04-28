@@ -14,6 +14,12 @@ class Graph<E>
     	 indexToVertex = (E[])new Object[vertices.length];
     	 addVertex(vertices);
      }
+
+     public void addEdge(E from, E to) {
+        int fromIdx = vertexToIndex.get(from);
+        int toIdx = vertexToIndex.get(to);
+        adjacencyMatrix[fromIdx][toIdx] = 1;
+    }
      
 
 }
