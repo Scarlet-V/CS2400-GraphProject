@@ -47,5 +47,38 @@ class Graph<E>
             System.out.println();
         }
     }
-
+    void depthFirstTraverse(E source) 
+    {
+        Boolean[] visited = new Boolean[adjacencyMatrix.length];
+        for(int i=0; i<indexToVertex.length; i++)
+            visited[i] = false;
+        
+        Stack<E> stack = new Stack<E>();
+        stack.push(source);
+        
+        int fromIdx, toIdx;
+        while(stack.empty()==false) 
+        {
+            
+            System.out.print("Stack: ");
+            for(E e: stack) {
+                System.out.print(e + " ");
+            }
+            System.out.println();
+            
+            source = stack.pop();
+            
+            fromIdx = vertexToIndex.get(source);
+            visited[fromIdx] = true;
+            System.out.print(source + " ");
+            for(toIdx=0;toIdx<adjacencyMatrix.length; toIdx++) 
+            {
+                if(adjacencyMatrix[fromIdx][toIdx]==1 && visited[toIdx]==false) {
+                    if(!stack.contains(indexToVertex[toIdx]))
+                        stack.push(indexToVertex[toIdx]);
+                }
+            }
+            System.out.println();
+        }
+    }
 }
